@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'who'
-                sh 'mvn -v'
+                sh 'mvn clean install'
             }
         }
     }
