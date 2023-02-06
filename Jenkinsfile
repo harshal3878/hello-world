@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'who'
-                sh 'cat ~/.bash_profile'
+                sh 'mvn -v'
             }
         }
     }
