@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-		sh 'who'
+		sh 'sudo su'
+		sh 'resource ~/.bash_profile'
                 sh 'mvn clean install'
             }
         }
