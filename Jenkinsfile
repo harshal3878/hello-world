@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh 'who'
                 sh 'mvn clean install'
-                sh 'build successful'
+                sh 'ehco "build successful"'
             }
         }
         stage('Deploy') {
