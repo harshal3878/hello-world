@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem /var/lib/jenkins/workspace/First_Maven_project/webapp/target/webapp.war ec2-user@100.25.151.73:/home/ec2-user/webapp.war'
+                sh 'scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem /var/lib/jenkins/workspace/First_Maven_project/webapp/target/webapp.war ec2-user@100.25.151.73:/opt/apache-tomcat-8.5.85/webapps/docs/appdev/sample.war'
             }
         }
     }
