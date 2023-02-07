@@ -14,6 +14,12 @@ pipeline {
             steps {
                 sh 'who'
                 sh 'mvn clean install'
+                sh 'build successful'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'scp -i /home/ec2-user/harshalTomcat.pem /var/lib/jenkins/workspace/First_Maven_project/webapp/target/webapp.war ec2-user@100.25.151.73:/home/ec2-user/webapp.war'
             }
         }
     }
