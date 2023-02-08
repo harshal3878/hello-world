@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem ec2-user@54.164.214.8 rm -r /var/lib/jenkins/workspace/First_Maven_project/webapp/target/webapp '
-                sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem ec2-user@54.164.214.8 rm /var/lib/jenkins/workspace/First_Maven_project/webapp/target/webapp.war'
+                sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem ec2-user@54.164.214.8 rm -r /opt/apache/webapps/webapp '
+                sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem ec2-user@54.164.214.8 rm /opt/apache/webapps/webapp.war'
                 sh 'scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem /var/lib/jenkins/workspace/First_Maven_project/webapp/target/webapp.war ec2-user@54.164.214.8:/opt/apache/webapps/'
                 sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/First_Maven_project/harshalTomcat.pem ec2-user@54.164.214.8 "./opt/apache/bin/shutdown.sh;  ./opt/apache/bin/startup.sh"'
             }
